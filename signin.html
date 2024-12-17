@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Login</title>
+  <link rel="stylesheet" href="Log.css">
+</head>
+<body>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- This button is outside the popup -->
+    <button id="open-popup">Login</button>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="close-popup">&times;</span>
+
+      <!-- Login Form -->
+      <div id="login-form">
+        <h2>Login</h2>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email">
+
+          <button type="submit">Submit</button>
+        </form>
+        <p>Don't have an account? <span id="show-signup">Sign Up</span></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup-form" style="display: none;">
+        <h2>Sign Up</h2>
+        <form>
+          <label for="new-name">Full Name</label>
+          <input type="text" id="new-name" name="new-name" placeholder="Enter your full name">
+
+          <label for="new-email">Email</label>
+          <input type="email" id="new-email" name="new-email" placeholder="Enter your email">
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter a password">
+
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <span id="show-login">Login</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openPopup = document.getElementById('open-popup');
+    const closePopup = document.getElementById('close-popup');
+    const popup = document.getElementById('popup');
+    const showSignup = document.getElementById('show-signup');
+    const showLogin = document.getElementById('show-login');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    openPopup.addEventListener('click', function() {
+      popup.style.display = 'flex';
+    });
+
+    closePopup.addEventListener('click', function() {
+      popup.style.display = 'none';
+    });
+    showSignup.addEventListener('click', function() {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    });
+    showLogin.addEventListener('click', function() {
+      signupForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
